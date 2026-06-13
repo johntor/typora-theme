@@ -538,19 +538,13 @@ header,
 
 input,
 select,
+button,
 textarea {
     background: #000000;
     color: var(--text-color);
     border: 1px solid var(--panel-border);
     border-radius: 3px;
 }
-
-button {}
-
-.btn {
-   background:#00284F;
-}
-
 
 input:focus,
 textarea:focus {
