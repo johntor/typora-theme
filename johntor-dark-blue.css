@@ -1,0 +1,597 @@
+/*
+ * Johntor Dark Blue — a Typora theme
+ *
+ *   page background  #001428      code background  #000000 / #000a14
+ *   body text        #e9eef5      inline code      #F0EB8E
+ *   blue accent      #22A9FF      link / orange    #FF9600
+ *   input border     #1C89CD      pre border       #0063A1
+ *
+ * Install: copy this file into Typora's theme folder
+ *   Windows  %APPDATA%\Typora\themes\
+ *   macOS    ~/Library/Application Support/abnerworks.Typora/themes/
+ * then restart Typora and pick "Johntor Dark Blue" from Themes.
+ */
+
+:root {
+    --bg-color: #000a14;
+    /* content background (matches preview) */
+    --side-bar-bg-color: #001428;
+    /* file tree + outline panel            */
+    --control-text-color: #b9c6d6;
+
+    --text-color: #ffffff;
+    /* body text                           */
+    --md-char-color: #5f7894;
+    /* markdown control chars (#, *, ` …)   */
+    --meta-content-color: #7c93ad;
+    /* meta info, link text in source mode  */
+
+    --primary-color: #22A9FF;
+    /* headings / strong accent            */
+    --link-color: #FF9600;
+    /* hyperlinks (matches app link color) */
+    --select-text-bg-color: #007dfa;
+    --select-text-font-color: #ffffff;
+
+    --code-bg: #000000;
+    --code-text: #F0EB8E;
+    --rule-color: #0d3a63;
+    --panel-border: #1C89CD;
+
+    --active-file-bg-color: #00284f;
+    --active-file-text-color: #ffffff;
+    --active-file-border-color: #22A9FF;
+    --item-hover-bg-color: rgba(34, 169, 255, 0.12);
+
+    --monospace: Consolas, "Cascadia Mono", "Courier New", monospace;
+}
+
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.55;
+}
+
+#write {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px 30px 100px;
+}
+
+#write>p:first-child,
+#write>h1:first-child,
+#write>h2:first-child {
+    margin-top: 16px;
+}
+
+/* ---- Headings ---------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    position: relative;
+}
+
+h1 {
+    font-size: 2.1rem;
+    color: #8FE28F;
+    margin: 1.4rem 0 1.2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: #F0EB8E;
+    padding-bottom: 0.3rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #F1B77C;
+}
+
+h4 {
+    font-size: 1.1rem;
+    color: #F17CDE;
+}
+
+h5 {
+    font-size: 1.0rem;
+    color: #987CF1;
+}
+
+h6 {
+    font-size: 1.0rem;
+    color: #7CF1DE;
+}
+
+/* ---- Inline elements --------------------------------------------------- */
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+strong {
+    color: #21A8FF;
+    font-weight: 700;
+}
+
+em {
+    color: #21FF98;
+}
+
+strong em,
+em strong {
+    color: #21FFFF;
+    font-weight: 700;
+    font-style: italic;
+}
+
+mark {
+    color: #000a14;
+    background: #ffd54a;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+
+/* mdViewer-style find highlight classes */
+mark.mdviewer-find-mark {
+    color: #000a14;
+    background: #ffd54a;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+
+mark.mdviewer-find-selected {
+    color: #ffffff;
+    background: #1c89cd;
+    outline: 1px solid #ffd54a;
+}
+
+del {
+    color: #7c93ad;
+}
+
+/* ---- Inline code ------------------------------------------------------- */
+
+code,
+tt {
+    font-family: var(--monospace);
+    background: var(--code-bg);
+    color: var(--code-text);
+    border: 1px solid #0d3a63;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.9em;
+}
+
+/* ---- Code fences ------------------------------------------------------- */
+
+.md-fences,
+pre.md-fences {
+    font-family: var(--monospace);
+    background: var(--code-bg);
+    border: 1px solid #0063A1;
+    border-radius: 4px;
+    padding: 12px;
+    color: #ffffff;
+    font-size: 0.9em;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+
+/* default (un-tokenized) text inside ``` fences is white */
+.md-fences .CodeMirror,
+.md-fences .CodeMirror pre,
+.cm-s-typora-default,
+.cm-s-inner {
+    color: #ffffff;
+}
+
+.md-fences code,
+.md-fences tt {
+    border: none;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* CodeMirror syntax tokens — mapped from code-highlight.css */
+.cm-s-typora-default .cm-comment,
+.cm-s-inner .cm-comment {
+    color: #8E8E8E;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-string,
+.cm-s-typora-default .cm-string-2,
+.cm-s-inner .cm-string {
+    color: #9BD22D;
+}
+
+.cm-s-typora-default .cm-number,
+.cm-s-inner .cm-number {
+    color: #FF8787;
+}
+
+.cm-s-typora-default .cm-keyword,
+.cm-s-inner .cm-keyword {
+    color: #22A9FF;
+    font-weight: 700;
+}
+
+.cm-s-typora-default .cm-def,
+.cm-s-inner .cm-def {
+    color: #22A9FF;
+}
+
+.cm-s-typora-default .cm-variable,
+.cm-s-typora-default .cm-variable-2,
+.cm-s-typora-default .cm-variable-3,
+.cm-s-inner .cm-variable {
+    color: #F0EB8E;
+}
+
+.cm-s-typora-default .cm-atom,
+.cm-s-inner .cm-atom {
+    color: #BD9AFF;
+}
+
+.cm-s-typora-default .cm-property,
+.cm-s-inner .cm-property {
+    color: #7CB7F1;
+}
+
+.cm-s-typora-default .cm-type,
+.cm-s-inner .cm-type {
+    color: #9BD22D;
+}
+
+.cm-s-typora-default .cm-tag,
+.cm-s-inner .cm-tag {
+    color: #569CD6;
+    font-weight: 700;
+}
+
+.cm-s-typora-default .cm-attribute,
+.cm-s-inner .cm-attribute {
+    color: #7CB7F1;
+}
+
+.cm-s-typora-default .cm-operator,
+.cm-s-inner .cm-operator {
+    color: #D4D4D4;
+}
+
+.cm-s-typora-default .cm-meta,
+.cm-s-inner .cm-meta {
+    color: #F1B77C;
+}
+
+.cm-s-typora-default .cm-builtin,
+.cm-s-inner .cm-builtin {
+    color: #BD9AFF;
+}
+
+.cm-s-typora-default .cm-link,
+.cm-s-inner .cm-link {
+    color: var(--link-color);
+}
+
+/* CSS class/id selectors (.foo, #bar) — gold, matches .code-selector */
+.cm-s-typora-default .cm-qualifier,
+.cm-s-inner .cm-qualifier,
+.md-fences .cm-qualifier {
+    color: #FFC826;
+}
+
+/* ---- Blockquote -------------------------------------------------------- */
+
+blockquote {
+    border-left: 6px solid #22A9FF;
+    background: rgba(34, 169, 255, 0.2);
+    color: #fff;
+    padding: 6px 16px;
+    margin: 1rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+blockquote blockquote {
+    margin-top: 8px;
+}
+
+/* ---- Tables ------------------------------------------------------------ */
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 16px 0;
+    background: #000000;
+    border: 1px solid #1c89cd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+th,
+td {
+    background: #000000;
+    color: var(--text-color);
+    border: 0;
+    border-right: 1px solid #1c89cd;
+    border-bottom: 1px solid #1c89cd;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th:last-child,
+td:last-child {
+    border-right: 0;
+}
+
+tr:last-child td {
+    border-bottom: 0;
+}
+
+th {
+    background: #004a94;
+    font-weight: 700;
+}
+
+/* Honor column alignment from colons in the divider row. */
+th[align="left"],
+td[align="left"] {
+    text-align: left;
+}
+
+th[align="center"],
+td[align="center"] {
+    text-align: center;
+}
+
+th[align="right"],
+td[align="right"] {
+    text-align: right;
+}
+
+/* ---- Lists ------------------------------------------------------------- */
+
+#write ul,
+#write ol {
+    padding-left: 1.6rem;
+}
+
+li::marker {
+    color: #22A9FF;
+}
+
+/* task list checkboxes */
+.md-task-list-item>input {
+    accent-color: #007dfa;
+}
+
+/* ---- Horizontal rule --------------------------------------------------- */
+
+hr {
+    border: none;
+    border-top: 1px solid var(--rule-color);
+    margin: 2rem 0;
+}
+
+/* ---- Images ------------------------------------------------------------ */
+
+img {
+    border-radius: 4px;
+    max-width: 100%;
+}
+
+/* ---- Markdown control characters (live preview) ------------------------ */
+
+.md-meta,
+.md-before,
+.md-after {
+    color: var(--md-char-color);
+}
+
+.md-fence-bg {
+    background: rgba(34, 169, 255, 0.22);
+}
+
+.md-search-hit {
+    background: #ffd54a;
+    color: #000a14;
+    border-radius: 2px;
+}
+
+/* selection */
+::selection {
+    background: var(--select-text-bg-color);
+    color: var(--select-text-font-color);
+}
+
+/* ---- Sidebar / file tree / outline ------------------------------------- */
+
+.sidebar,
+#typora-sidebar,
+.sidebar-tabs {
+    background: var(--side-bar-bg-color);
+    border-right: 1px solid var(--rule-color);
+    color: var(--control-text-color);
+}
+
+.file-node-content:hover,
+.file-list-item:hover,
+.outline-item:hover {
+    background: var(--item-hover-bg-color);
+}
+
+.active-tab-files .file-list-item.active,
+.file-node-content.active,
+.outline-active {
+    background: var(--active-file-bg-color);
+    color: var(--active-file-text-color);
+    border-left: 2px solid var(--active-file-border-color);
+}
+
+.sidebar-tabs .sidebar-tab.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* ---- Outline panel / TOC ---------------------------------------------- */
+
+.md-toc-item {
+    color: var(--meta-content-color);
+}
+
+.md-toc-item a {
+    color: var(--meta-content-color);
+}
+
+.md-toc-item.md-toc-active a,
+.md-toc-item a:hover {
+    color: var(--primary-color);
+}
+
+/* ---- Title bar / window controls -------------------------------------- */
+
+#top-titlebar,
+header,
+.typora-sourceview-on #toggle-sourceview-btn {
+    background: var(--side-bar-bg-color);
+    color: var(--control-text-color);
+}
+
+/* ---- Source-code (raw) mode ------------------------------------------- */
+
+#typora-source {
+    font-family: var(--monospace);
+}
+
+#typora-source .CodeMirror {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+#typora-source .CodeMirror-cursor {
+    border-left: 1px solid var(--primary-color);
+}
+
+.CodeMirror-selected {
+    background: rgba(0, 125, 250, 0.30) !important;
+}
+
+#typora-source .cm-header {
+    color: #F0EC8F;
+    font-weight: 600;
+}
+
+#typora-source .cm-link {
+    color: var(--link-color);
+}
+
+#typora-source .cm-url {
+    color: var(--meta-content-color);
+}
+
+#typora-source .cm-quote {
+    color: #c4d2e2;
+}
+
+#typora-source .cm-strong {
+    color: #ffffff;
+}
+
+#typora-source .cm-em {
+    color: #d9e2ee;
+}
+
+/* ---- Search panel ------------------------------------------------------ */
+
+.ty-search-panel,
+#md-searchpanel,
+.modal-content {
+    background: var(--side-bar-bg-color);
+    border: 1px solid var(--panel-border);
+    color: var(--text-color);
+}
+
+input,
+select,
+textarea {
+    background: #000000;
+    color: var(--text-color);
+    border: 1px solid var(--panel-border);
+    border-radius: 3px;
+}
+
+button {}
+
+.btn {
+   background:#00284F;
+}
+
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* ---- Scrollbars -------------------------------------------------------- */
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #004a94;
+    border-radius: 4px;
+    border: 2px solid var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1166b3;
+}
+
+/* ---- Footer / focus & typewriter mode --------------------------------- */
+
+#typora-quick-open {
+    background: var(--side-bar-bg-color);
+    color: var(--text-color);
+}
+
+#typora-quick-open-item.active,
+#typora-quick-open-item:hover {
+    background: var(--active-file-bg-color);
+}
+
+.footer-word-count-info {
+    color: #FF8787;
+    /* matches the app's red word/char counters */
+}
