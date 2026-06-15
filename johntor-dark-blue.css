@@ -66,7 +66,7 @@
 
     --code-bg: #000000;
     --code-text: #F0EB8E;
-    --rule-color: #0d3a63;
+    --rule-color: #9BD22D;
     --panel-border: #1C89CD;
 
     --active-file-bg-color: #00284f;
@@ -282,7 +282,7 @@ mark.mdviewer-find-selected {
 }
 
 del {
-    color: #7c93ad;
+    color: #AAAAAA;
 }
 
 /* ---- 3.3  Inline code -------------------------------------------------- */
@@ -497,7 +497,8 @@ td[align="right"] {
 
 /* ordered-list numbers keep the blue marker */
 #write ol>li::marker {
-    color: #22A9FF;
+    color: var(--ui-checkbox-checked);
+    font-weight: bolder;
 }
 
 /* custom unordered-list bullets via ::before so they can be sized and
@@ -547,7 +548,7 @@ td[align="right"] {
 hr {
     border: none;
     border-top: 1px solid var(--rule-color);
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
 img {
